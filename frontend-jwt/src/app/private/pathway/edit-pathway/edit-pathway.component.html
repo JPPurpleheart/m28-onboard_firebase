@@ -1,0 +1,26 @@
+<div class="col-12 d-inline-flex justify-content-center">
+    <div class="card m-5 w-75">
+        <div class="card-header bg-dark text-light">Editar Itinerario</div>
+        <div class="card-body">
+            <form #pathwayForm="ngForm" (ngSubmit)="submitPathway()">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre del Itinerario</label>
+                    <input type="text" class="form-control" name="nombre" id="nombre"
+                        placeholder="{{itinerariosList.nombre}}" [(ngModel)]="form.nombre" required>
+                </div>
+                <!-- <div class="w-100 mb-4 d-inline-flex">
+                    <div class="m-1 w-25">
+                        <label for="formFile" class="form-label">Imagen del Itinerario</label>
+                        <input class="form-control" type="file" id="formFile">
+                    </div>
+                    <div class="m-1 w-75">
+                        <label for="formGroupExampleInput" class="form-label">Descripción del Itinerario</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput"
+                            placeholder="Example input placeholder">
+                    </div>
+                </div> -->
+                <button type="submit" class="btn btn-danger w-100" [disabled]="!pathwayForm.valid">Editar Itinerario</button>
+            </form>
+        </div>
+    </div>
+</div>

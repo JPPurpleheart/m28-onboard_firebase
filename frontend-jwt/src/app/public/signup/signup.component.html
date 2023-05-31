@@ -1,0 +1,30 @@
+<div class="col-12 bg-light text-dark d-inline-flex justify-content-center mw-100">
+    <div class="card bg-light m-5">
+        <div class="card-header">Signup</div>
+        <div class="card-body">
+            <form #signupForm="ngForm" (ngSubmit)="submitSignup()">
+                <div class="mb-3">
+                  <label for="name" class="form-label">Name</label>
+                  <input type="text" class="form-control bg-light text-dark" id="name" name="name" [(ngModel)]="form.name" required>
+                </div>
+                <div class="alert alert-danger" [hidden]="!error.name"> {{error.name}} </div>
+                <div class="mb-3">
+                  <label for="username" class="form-label">Username</label>
+                  <input type="text" class="form-control bg-light text-dark" id="username" name="username" [(ngModel)]="form.username" required>
+                </div>
+                <div class="alert alert-danger" [hidden]="!error.username"> {{error.username}} </div>
+                <div class="mb-3">
+                  <label for="password" class="form-label">Password</label>
+                  <input type="password" class="form-control bg-light text-dark" id="password" name="password" [(ngModel)]="form.password" required>
+                </div>
+                <div class="alert alert-danger" [hidden]="!error.password"> {{error.password}} </div>
+                <div class="mb-3">
+                  <label for="cpassword" class="form-label">Confirm Password</label>
+                  <input type="password" class="form-control bg-light text-dark" id="cpassword" name="password_confirmation" [(ngModel)]="form.password_confirmation" required>
+                </div>
+                <div class="alert alert-danger" [hidden]="!error.password_confirmation"> {{error.password_confirmation}} </div>
+                <button type="submit" class="btn btn-danger" [disabled]="!signupForm.valid">Signup</button>
+            </form>
+        </div>
+    </div>
+</div>

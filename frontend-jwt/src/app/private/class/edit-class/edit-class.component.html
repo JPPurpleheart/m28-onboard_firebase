@@ -1,0 +1,36 @@
+<div class="col-12 d-inline-flex justify-content-center">
+    <div class="card m-5 w-75">
+        <div class="card-header bg-dark text-light">Editar Clase</div>
+        <div class="card-body">
+            <form #classForm="ngForm" (ngSubmit)="editClass()">
+                <div class="mb-3">
+                    <label for="nombre" class="form-label">Nombre de la Clase</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre"
+                        placeholder="{{documentoData.nombre}}" [(ngModel)]="form.nombre" required>
+                </div>
+                <div class="mb-3">
+                    <label for="ruta_acceso" class="form-label">Ruta de acceso de la Clase</label>
+                    <input type="te{{documentoData.ruta_acceso}}t" class="form-control" id="ruta_acceso" name="ruta_acceso"
+                        placeholder="{{documentoData.ruta_acceso}}" [(ngModel)]="form.ruta_acceso" required>
+                </div>
+                <div class="mb-3">
+                    <label for="curso" class="form-label">Curso de la Clase</label>
+                    <select class="form-select" id="curso" name="curso" [(ngModel)]="form.id_curso" required>
+                        <option>Selecciona un Curso...</option>
+                        <option *ngFor="let curso of cursoList" [ngValue]="curso.id" selected>
+                            <ul *ngIf="curso.id==documentoData.id_curso">
+                                <li>{{curso.nombre}}</li>
+                            </ul>
+                        </option>
+                        <option *ngFor="let curso of cursoList" [ngValue]="curso.id">{{curso.nombre}}</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="video_duration" class="form-label">Duración de la Clase (en milisegundos)</label>
+                    <input type="number" class="form-control" id="video_duration" name="video_duration" placeholder="{{documentoData.video_duration}}" [(ngModel)]="form.video_duration" required>
+                </div>
+                <button type="submit" class="btn btn-danger w-100">Editar Clase</button>
+            </form>
+        </div>
+    </div>
+</div>
